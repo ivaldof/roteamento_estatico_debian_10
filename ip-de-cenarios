@@ -1,0 +1,135 @@
+Roteamento estático debian 10 com 3 cenarios
+cenario 1
+R1
+allow-hotplug enp0s3
+iface enp0s3 inet static
+address 192.168.1.1/24
+
+allow-hotplug enp0s8
+iface enp0s8 inet static
+address 192.168.0.1/30
+
+maquina interna com 2 adaptador;
+
+R2
+allow-hotplug enp0s3
+iface enp0s3 inet static
+address 192.168.0.2/30
+
+allow-hotplug enp0s8
+iface enp0s8 inet static
+address 192.168.2.1/24
+
+allow-hotplug enp0s9
+iface enp0s9 inet static
+address 192.168.0.5/30
+maquina interna com 3 adaptador;
+R3
+allow-hotplug enp0s3
+iface enp0s3 inet static
+address 192.168.0.6/30
+
+allow-hotplug enp0s8
+iface enp0s8 inet static
+address 192.168.3.1/24 
+
+maquina interna com 2 adaptador;
+
+cenario 2
+R1
+allow-hotplug enp0s3
+iface enp0s3 inet static
+address 192.168.1.1/24
+
+allow-hotplug enp0s8
+iface enp0s8 inet static
+address 192.168.0.1/30
+
+allow-hotplug enp0s8
+iface enp0s8 inet static
+address 192.168.0.9/30
+
+maquina interna com 3 adaptador;
+
+R2
+allow-hotplug enp0s3
+iface enp0s3 inet static
+address 192.168.0.2/30
+
+allow-hotplug enp0s8
+iface enp0s8 inet static
+address  192.168.2.1/24
+
+allow-hotplug enp0s9
+iface enp0s9 inet static
+address  192.168.0.5/30
+
+maquina interna com 3 adaptador;
+
+R3
+allow-hotplug enp0s3
+iface enp0s3 inet static
+address  192.168.0.6/30
+
+allow-hotplug enp0s8
+iface enp0s8 inet static
+address 192.168.3.1/24 
+
+allow-hotplug enp0s9
+iface enp0s9 inet static
+address 192.168.0.10/30
+
+maquina interna com 3 adaptador;
+
+cenario 3
+R1
+allow-hotplug enp0s3
+iface enp0s3 inet static
+address 192.168.1.1/24
+
+allow-hotplug enp0s8
+iface enp0s8 inet static
+address 192.168.0.1/30
+
+allow-hotplug enp0s8
+iface enp0s8 inet static
+address 192.168.0.9/30
+
+maquina interna com 3 adaptador;
+R2
+allow-hotplug enp0s3
+iface enp0s3 inet static
+address 192.168.0.2/30
+
+allow-hotplug enp0s8
+iface enp0s8 inet static
+address  192.168.2.1/24
+
+allow-hotplug enp0s9
+iface enp0s9 inet static
+address  192.168.0.5/30
+
+são 3 portas interna e uma nat;
+maquina com 4 adaptador 3 de maquina interna e 1 dhcp;
+
+R3
+allow-hotplug enp0s3
+iface enp0s3 inet static
+address  192.168.0.6/30
+
+allow-hotplug enp0s8
+iface enp0s8 inet static
+address 192.168.3.1/24 
+
+allow-hotplug enp0s9
+iface enp0s9 inet static
+address 192.168.0.10/30
+
+maquina interna com 3 adaptador;
+
+
+
+veja o exemplo das rotas post-up ip route add 192.168.1.0/24 via 192.168.0.5 src 192.168.3.1
+
+
+
